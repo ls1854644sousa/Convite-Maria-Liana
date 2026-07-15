@@ -3,154 +3,112 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chá da Maria Liana</title>
+
+<title>Chá da Maria Liana 💕</title>
 
 <style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
 body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#fffdf5;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
+    background:#f7f3f0;
+    font-family:Arial,sans-serif;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
 }
 
-.card{
-width:90%;
-max-width:400px;
-background:white;
-border-radius:20px;
-padding:30px;
-text-align:center;
-box-shadow:0 10px 30px rgba(0,0,0,.15);
+header{
+    width:100%;
+    background:#ffffff;
+    padding:15px;
+    text-align:center;
+    font-size:22px;
+    font-weight:bold;
+    color:#b77a7a;
+    box-shadow:0 2px 8px rgba(0,0,0,.1);
+    position:sticky;
+    top:0;
+    z-index:100;
 }
 
-h1{
-color:#D7B84B;
-margin-bottom:10px;
+#viewer{
+    width:100%;
+    max-width:700px;
+    margin:20px auto;
 }
 
-p{
-color:#666;
-margin-bottom:25px;
+canvas{
+    width:100%;
+    height:auto;
+    display:block;
+    margin:15px auto;
+    border-radius:12px;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+    background:white;
 }
 
-a{
-display:block;
-background:#F4D35E;
-color:#444;
-padding:18px;
-border-radius:12px;
-text-decoration:none;
-font-weight:bold;
-font-size:18px;
-}
-
-a:hover{
-background:#ebc93d;
+footer{
+    color:#777;
+    padding:20px;
+    font-size:13px;
 }
 </style>
 
 </head>
-
 <body>
 
-<div class="card">
+<header>
+🎀 Chá da Maria Liana 🎀
+</header>
 
-<h1>🌼 Chá da Maria Liana 🌼</h1>
-
-<p>Você acaba de receber um convite muito especial.</p>
-
-<a href="convite-m.html">
-CLIQUE AQUI
-</a>
-
-</div>
-
-</body>
-</html>
-
-<section class="data">
-
-<h3>📅 Informações</h3>
-
-<p><strong>Data:</strong> 05/09/2026</p>
-
-<p><strong>Horário:</strong> 11h30</p>
-
-<p><strong>Local:</strong><br>
-Sítio 3F<br>
-R. Campos do Jordão, 08<br>
-Pavuna - Pacatuba - CE
-</p>
-
-</section>
-
-<section class="botoes">
-
-<a class="botao"
-href="https://wa.me/5585987132705?text=Olá! Confirmo minha presença no Chá de Fraldas da Maria Liana.">
-
-💬 Confirmar Presença
-
-</a>
-
-<a class="botao"
-href="https://www.google.com/maps/search/?api=1&query=Sítio+3F+R.+Campos+do+Jordão,+08+Pavuna+Pacatuba+CE">
-
-📍 Como Chegar
-
-</a>
-
-</section>
-
-<section class="presente">
-
-<h2>🎁 Sugestão de Presentes</h2>
-
-<p>
-
-Fraldas descartáveis nos tamanhos:
-
-</p>
-
-<h3>
-
-P • M • G • EG
-
-</h3>
-
-<br>
-
-<p>
-
-Ou um mimo de sua preferência ❤️
-
-</p>
-
-</section>
-  <section class="final">
-
-<h2>💛 Esperamos você!</h2>
-
-<p>
-Sua presença vai deixar esse momento ainda mais especial.
-</p>
-
-<p>
-Com carinho,<br>
-Mamãe e Papai da Maria Liana 🌼
-</p>
-
-</section>
+<div id="viewer"></div>
 
 <footer>
-🌼 Chá de Fraldas da Maria Liana 🌼
+Feito com ❤️
 </footer>
 
-</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+<script>
+
+pdfjsLib.GlobalWorkerOptions.workerSrc =
+'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+const url = 'Convite.pdf';
+
+pdfjsLib.getDocument(url).promise.then(async pdf => {
+
+    const viewer = document.getElementById('viewer');
+
+    for(let pageNum=1; pageNum<=pdf.numPages; pageNum++){
+
+        const page = await pdf.getPage(pageNum);
+
+        const viewport = page.getViewport({scale:1.8});
+
+        const canvas = document.createElement('canvas');
+
+        const context = canvas.getContext('2d');
+
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+
+        viewer.appendChild(canvas);
+
+        await page.render({
+            canvasContext:context,
+            viewport:viewport
+        }).promise;
+
+    }
+
+});
+
+</script>
 
 </body>
 </html>
-  
