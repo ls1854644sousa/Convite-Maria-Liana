@@ -139,7 +139,40 @@ body{
     left:14%;
     top:73.5%;
 
-    width:72%;
+    width:72%.confirm{
+    left:16%;
+    top:74%;
+
+    width:18%;
+    height:12%;
+
+    background:rgba(0,255,0,.35);
+    border:2px solid green;
+}
+
+.location{
+    left:41%;
+    top:74%;
+
+    width:18%;
+    height:12%;
+
+    background:rgba(0,0,255,.30);
+    border:2px solid blue;
+}
+
+.gift{
+    left:66%;
+    top:74%;
+
+    width:18%;
+    height:12%;
+
+    background:rgba(255,255,0,.35);
+    border:2px solid orange;
+
+    cursor:pointer;
+};
     height:6%;
 
     background:rgba(0,255,0,.35);
