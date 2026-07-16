@@ -109,9 +109,11 @@ body{
 
     cursor:pointer;
 
-    background:transparent;
+    background:rgba(255,0,0,.25); /* TEMPORÁRIO */
 
-    border:none;
+    border:2px solid red;
+
+    z-index:9999;
 
 }
 /* ===========================
