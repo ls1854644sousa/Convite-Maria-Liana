@@ -1,26 +1,64 @@
-document.addEventListener("DOMContentLoaded", () => {
+// =========================
+// ELEMENTOS
+// =========================
 
-    const pages = document.querySelectorAll(".page");
+const home = document.getElementById("home");
+const invite = document.getElementById("invite");
+const gift = document.getElementById("gift");
 
-    const home = document.getElementById("home");
-    const invite = document.getElementById("invite");
-    const gifts = document.getElementById("gifts");
+const openInvite = document.getElementById("openInvite");
+const btnGift = document.getElementById("btnGift");
+const btnBack = document.getElementById("btnBack");
 
-    function show(page){
-        pages.forEach(p => p.classList.remove("active"));
-        page.classList.add("active");
-    }
+// =========================
+// TROCAR TELA
+// =========================
 
-    document.getElementById("enter").addEventListener("click", () => {
-        show(invite);
-    });
+function show(screen){
 
-    document.querySelector(".gift").addEventListener("click", () => {
-        show(gifts);
-    });
+    document
+        .querySelectorAll(".screen")
+        .forEach(item=>item.classList.remove("active"));
 
-    document.querySelector(".back").addEventListener("click", () => {
-        show(invite);
-    });
+    screen.classList.add("active");
+
+}
+
+// =========================
+// EVENTOS
+// =========================
+
+openInvite.addEventListener("click",()=>{
+
+    show(invite);
+
+});
+
+btnGift.addEventListener("click",()=>{
+
+    show(gift);
+
+});
+
+btnBack.addEventListener("click",()=>{
+
+    show(invite);
+
+});
+
+// =========================
+// PRELOAD
+// =========================
+
+[
+"assets/capa.jpg",
+"assets/convite.jpg",
+"assets/presentes.jpg"
+
+].forEach(src=>{
+
+    const img=new Image();
+
+    img.src=src;
 
 });
