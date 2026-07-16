@@ -1,80 +1,97 @@
-// ===== Elementos =====
+// =========================
+// ELEMENTOS
+// =========================
 
-const capa = document.getElementById("capa");
-const convite = document.getElementById("convite");
-const presentes = document.getElementById("presentes");
+const home = document.getElementById("home");
+const invite = document.getElementById("invite");
+const gifts = document.getElementById("gifts");
 
-const abrirConvite = document.getElementById("abrirConvite");
-const abrirPresentes = document.getElementById("abrirPresentes");
-const voltarConvite = document.getElementById("voltarConvite");
+const enter = document.getElementById("enter");
+const gift = document.querySelector(".gift");
+const back = document.querySelector(".back");
 
-// ===== Função para trocar de tela =====
+// =========================
+// TROCAR TELA
+// =========================
 
-function mostrarTela(telaAtual, novaTela){
+function show(page){
 
-    telaAtual.classList.remove("ativa");
+    document.querySelectorAll(".page").forEach(p=>{
 
-    setTimeout(()=>{
+        p.classList.remove("active");
 
-        novaTela.classList.add("ativa");
-        novaTela.classList.add("fade");
+    });
 
-        setTimeout(()=>{
-            novaTela.classList.remove("fade");
-        },500);
+    page.classList.add("active");
 
-    },250);
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
 
 }
 
-// ===== Abrir Convite =====
+// =========================
+// EVENTOS
+// =========================
 
-abrirConvite.addEventListener("click",()=>{
+enter.onclick=()=>{
 
-    mostrarTela(capa,convite);
+    show(invite);
 
-});
+}
 
-// ===== Abrir Presentes =====
+gift.onclick=()=>{
 
-abrirPresentes.addEventListener("click",()=>{
+    show(gifts);
 
-    mostrarTela(convite,presentes);
+}
 
-});
+back.onclick=()=>{
 
-// ===== Voltar =====
+    show(invite);
 
-voltarConvite.addEventListener("click",()=>{
+}
 
-    mostrarTela(presentes,convite);
-
-});
-
-// ===== Evita zoom duplo =====
-
-document.addEventListener("gesturestart",function(e){
-
-    e.preventDefault();
-
-});
-
-// ===== Suporte ao botão voltar do Android =====
+// =========================
+// BOTÃO VOLTAR ANDROID
+// =========================
 
 history.pushState(null,null,location.href);
 
-window.onpopstate=function(){
+window.addEventListener("popstate",()=>{
 
-    if(presentes.classList.contains("ativa")){
+    if(gifts.classList.contains("active")){
 
-        mostrarTela(presentes,convite);
-        history.pushState(null,null,location.href);
+        show(invite);
 
-    }else if(convite.classList.contains("ativa")){
-
-        mostrarTela(convite,capa);
         history.pushState(null,null,location.href);
 
     }
 
-};
+    else if(invite.classList.contains("active")){
+
+        show(home);
+
+        history.pushState(null,null,location.href);
+
+    }
+
+});
+
+// =========================
+// PRELOAD DAS IMAGENS
+// =========================
+
+[
+"assets/capa.jpg",
+"assets/convite.jpg",
+"assets/presentes.jpg"
+
+].forEach(src=>{
+
+const img=new Image();
+
+img.src=src;
+
+});
