@@ -6,7 +6,6 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    -webkit-tap-highlight-color:transparent;
 }
 
 html,
@@ -14,36 +13,33 @@ body{
 
     width:100%;
     height:100%;
+
     overflow:hidden;
-    background:#f8f3f1;
+
     font-family:Arial,Helvetica,sans-serif;
 
+    background:#f6eceb;
+
 }
 
-/* ===========================
-   FUNDO
-=========================== */
+button,
+a{
 
-#background{
+    border:none;
 
-    position:fixed;
-    inset:0;
+    outline:none;
 
-    background:linear-gradient(
-        180deg,
-        #fff9fa,
-        #fbeaea
-    );
+    text-decoration:none;
 
-    z-index:-1;
+    -webkit-tap-highlight-color:transparent;
 
 }
 
 /* ===========================
-   PÁGINAS
+   TELAS
 =========================== */
 
-.page{
+.screen{
 
     position:fixed;
 
@@ -59,263 +55,54 @@ body{
 
     visibility:hidden;
 
-    transform:translateX(100%);
-
-    transition:
-        transform .65s ease,
-        opacity .65s ease;
+    transition:.45s;
 
 }
 
-.page.active{
+.screen.active{
 
     opacity:1;
 
     visibility:visible;
 
-    transform:translateX(0);
-
 }
 
 /* ===========================
-   IMAGENS
+   CARD
 =========================== */
-
-.pageImage{
-    position:absolute;
-    inset:0;
-
-    width:100%;
-    height:100%;
-
-    object-fit:contain;
-
-    user-select:none;
-
-    z-index:1;
-}
-
-/* ===========================
-   BOTÕES
-=========================== */
-
-#enter{
-
-    left:34%;
-    top:55%;
-
-    width:32%;
-    height:18%;
-
-    cursor:pointer;
-
-    /* TEMPORÁRIO */
-    background:rgba(255,0,0,.35);
-    border:2px solid red;
-
-}
-/* ===========================
-   BOTÃO DA CAPA
-=========================== */
-
-#enter{
-
-    width:48%;
-    height:11%;
-
-    left:26%;
-    bottom:11%;
-
-    animation:pulse 1.8s infinite;
-
-}
-
-/* ===========================
-   BOTÕES DO CONVITE
-=========================== */
-
-.confirm{
-    position:absolute;
-
-    left:17%;
-    top:61%;
-
-    width:17%;
-    height:15%;
-
-    background:rgba(0,255,0,.35);
-    border:2px solid green;
-}
-
-.location{
-    position:absolute;
-
-    left:41.5%;
-    top:61%;
-
-    width:17%;
-    height:15%;
-
-    background:rgba(0,0,255,.35);
-    border:2px solid blue;
-}
-
-.gift{
-    position:absolute;
-
-    left:66%;
-    top:61%;
-
-    width:17%;
-    height:15%;
-
-    background:rgba(255,255,0,.35);
-    border:2px solid orange;
-}
-    height:6%;
-
-    background:rgba(0,255,0,.35);
-    border:2px solid green;
-
-}
-
-.location{
-
-    left:14%;
-    top:81.5%;
-
-    width:72%;
-    height:6%;
-
-    background:rgba(0,0,255,.30);
-    border:2px solid blue;
-
-}
-
-.gift{
-
-    left:14%;
-    top:89.5%;
-
-    width:72%;
-    height:6%;
-
-    background:rgba(255,255,0,.35);
-    border:2px solid orange;
-
-    cursor:pointer;
-
-}
-
-/* ===========================
-   VOLTAR
-=========================== */
-
-.back{
-
-    width:22%;
-    height:10%;
-
-    left:2%;
-    top:2.back{
-
-    left:3%;
-    top:3%;
-
-    width:18%;
-    height:10%;
-
-    background:rgba(255,0,255,.35);
-    border:2px solid magenta;
-
-}%;
-
-}
-
-/* ===========================
-   ANIMAÇÕES
-=========================== */
-
-@keyframes pulse{
-
-0%{
-transform:scale(1);
-}
-
-50%{
-transform:scale(1.08);
-}
-
-100%{
-transform:scale(1);
-}
-
-}
-
-@keyframes fadeIn{
-
-from{
-
-opacity:0;
-transform:translateY(30px);
-
-}
-
-to{
-
-opacity:1;
-transform:translateY(0);
-
-}
-
-}
-
-.page.active{
-
-animation:fadeIn .6s ease;
-
-}
-
-/* ===========================
-   CELULARES
-=========================== */
-
-@media (max-width:768px){
-
-.pageImage{
-
-width:100vw;
-height:100vh;
-object-fit:contain;
-
-}
-
-}
-/* ======================================
-   CONTAINER DO CONVITE
-====================================== */
 
 .card{
 
     position:relative;
 
-    width:min(430px,95vw);
+    width:min(430px,96vw);
 
     aspect-ratio:9/16;
 
-    margin:auto;
+    border-radius:22px;
+
+    overflow:hidden;
+
+    box-shadow:
+
+    0 20px 50px rgba(0,0,0,.18);
+
+    background:white;
 
 }
 
-/* Imagem ocupa exatamente o card */
+/* ===========================
+   IMAGEM
+=========================== */
 
-.card .pageImage{
+.image{
 
     position:absolute;
 
     inset:0;
 
     width:100%;
+
     height:100%;
 
     object-fit:cover;
@@ -324,16 +111,124 @@ object-fit:contain;
 
 }
 
-/* Todos os botões ficam relativos ao card */
+/* ===========================
+   BOTÃO CAPA
+=========================== */
 
-.card #enter,
-.card .confirm,
-.card .location,
-.card .gift,
-.card .back{
+#openInvite{
 
     position:absolute;
 
-    z-index:100;
+    left:35%;
+
+    top:56%;
+
+    width:30%;
+
+    height:17%;
+
+    cursor:pointer;
+
+    border-radius:100px;
+
+    background:rgba(255,0,0,.25);
+
+    border:2px solid red;
+
+    animation:pulse 1.6s infinite;
 
 }
+
+/* ===========================
+   BOTÕES DO CONVITE
+=========================== */
+
+#btnWhatsapp,
+#btnMaps,
+#btnGift{
+
+    position:absolute;
+
+    width:18%;
+
+    height:12%;
+
+    top:63%;
+
+    border-radius:100px;
+
+}
+
+#btnWhatsapp{
+
+    left:15%;
+
+    background:rgba(0,255,0,.35);
+
+    border:2px solid green;
+
+}
+
+#btnMaps{
+
+    left:41%;
+
+    background:rgba(0,120,255,.35);
+
+    border:2px solid blue;
+
+}
+
+#btnGift{
+
+    left:67%;
+
+    background:rgba(255,230,0,.40);
+
+    border:2px solid orange;
+
+}
+
+/* ===========================
+   VOLTAR
+=========================== */
+
+#btnBack{
+
+    position:absolute;
+
+    left:20px;
+
+    top:20px;
+
+    padding:12px 18px;
+
+    border-radius:40px;
+
+    background:#ffffffdd;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+}
+
+/* ===========================
+   ANIMAÇÃO
+=========================== */
+
+@keyframes pulse{
+
+0%{
+
+transform:scale(1);
+
+}
+
+50%{
+
+transform:scale(1.08);
+
+}
+
+100%{
