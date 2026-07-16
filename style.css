@@ -45,7 +45,7 @@ body{
 
 .page{
 
-    position:absolute;
+    position:fixed;
 
     inset:0;
 
