@@ -7,8 +7,8 @@ const invite = document.getElementById("invite");
 const gift = document.getElementById("gift");
 
 const openInvite = document.getElementById("openInvite");
-const btnGift = document.getElementById("btnGift");
-const btnBack = document.getElementById("btnBack");
+const btnWhatsapp = document.getElementById("btnWhatsapp");
+const btnMaps = document.getElementById("btnMaps");
 
 // =========================
 // TROCAR TELA
@@ -43,6 +43,17 @@ btnGift.addEventListener("click",()=>{
 btnBack.addEventListener("click",()=>{
 
     show(invite);
+
+});
+btnWhatsapp.addEventListener("click", () => {
+
+    window.location.href = "https://wa.me/558587132705";
+
+});
+
+btnMaps.addEventListener("click", () => {
+
+    window.location.href = "https://maps.app.goo.gl/1FCwzyHRL24pTqm19";
 
 });
 
