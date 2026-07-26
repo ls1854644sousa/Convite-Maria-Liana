@@ -9,6 +9,8 @@ const gift = document.getElementById("gift");
 const openInvite = document.getElementById("openInvite");
 const btnWhatsapp = document.getElementById("btnWhatsapp");
 const btnMaps = document.getElementById("btnMaps");
+const btnGift = document.getElementById("btnGift");
+const btnBack = document.getElementById("btnBack");
 
 // =========================
 // TROCAR TELA
