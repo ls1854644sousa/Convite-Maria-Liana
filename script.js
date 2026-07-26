@@ -49,7 +49,12 @@ btnBack.addEventListener("click",()=>{
 });
 btnWhatsapp.addEventListener("click", () => {
 
-    window.open("https://wa.me/558587132705", "_blank");
+    const mensagem = "Olá, confirmo minha presença no chá da Maria Liana.";
+
+    window.open(
+        "https://wa.me/558587132705?text=" + encodeURIComponent(mensagem),
+        "_blank"
+    );
 
 });
 
