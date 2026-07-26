@@ -129,9 +129,11 @@ a{
 
     cursor:pointer;
 
-    border-radius:100px;
+    border:none;
 
-    background:rgba(255,0,0,.25);
+    background:transparent;
+
+}
 
     border:2px solid red;
 
@@ -163,9 +165,9 @@ a{
 
     left:15%;
 
-    background:rgba(0,255,0,.35);
+    background:transparent;
 
-    border:2px solid green;
+    border:none;
 
 }
 
@@ -173,9 +175,9 @@ a{
 
     left:41%;
 
-    background:rgba(0,120,255,.35);
+    background:transparent;
 
-    border:2px solid blue;
+    border:none;
 
 }
 
@@ -183,9 +185,11 @@ a{
 
     left:67%;
 
-    background:rgba(255,230,0,.40);
+    background:transparent;
 
-    border:2px solid orange;
+    border:none;
+
+}
 
 }
 
@@ -216,19 +220,3 @@ a{
 /* ===========================
    ANIMAÇÃO
 =========================== */
-
-@keyframes pulse{
-
-0%{
-
-transform:scale(1);
-
-}
-
-50%{
-
-transform:scale(1.08);
-
-}
-
-100%{
