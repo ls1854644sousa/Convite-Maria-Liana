@@ -138,12 +138,6 @@ a{
 
 }
 
-    border:2px solid red;
-
-    animation:pulse 1.6s infinite;
-
-}
-
 /* ===========================
    BOTÕES DO CONVITE
 =========================== */
@@ -189,8 +183,6 @@ a{
     background:transparent;
 
     border:none;
-
-}
 
 }
 
