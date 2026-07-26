@@ -49,13 +49,13 @@ btnBack.addEventListener("click",()=>{
 });
 btnWhatsapp.addEventListener("click", () => {
 
-    alert("WhatsApp clicado");
+    window.open("https://wa.me/558587132705", "_blank");
 
 });
 
 btnMaps.addEventListener("click", () => {
 
-    alert("Mapa clicado");
+    window.open("https://maps.app.goo.gl/1FCwzyHRL24pTqm19", "_blank");
 
 });
 
