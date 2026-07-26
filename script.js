@@ -49,7 +49,7 @@ btnBack.addEventListener("click",()=>{
 });
 btnWhatsapp.addEventListener("click", () => {
 
-    const mensagem = "Olá, confirmo minha presença no chá da Maria Liana.";
+    const mensagem = "Olá! 💛 Confirmo minha presença no Chá da Maria Liana. Será uma alegria participar desse momento especial!";
 
     window.open(
         "https://wa.me/558587132705?text=" + encodeURIComponent(mensagem),
